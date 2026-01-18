@@ -1,8 +1,5 @@
 import express from "express";
-import dotenv from "dotenv";
-
-dotenv.config()
-
+import {ENV} from "./lib/env.js";
 //IMPORTS
 import authroutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
@@ -13,7 +10,7 @@ const app = express()
 //MIDDLEWARE
 app.use(express.json)
 
-const PORT = process.env.PORT
+const PORT = ENV.PORT
 
 //ENDPOINTS
 app.use("/api/auth", authroutes);

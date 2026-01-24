@@ -1,12 +1,14 @@
 import express from "express";
 import { signup, login, logout , updateProfile} from "../controllers/auth.controller.js";
 import { protectRoute } from "../middleware/auth.middleware.js";
+import { archjetProtect } from "../middleware/archjet.middleware.js";
 
 const router = express.Router();
+router.use(archjetProtect)
 
-router.post("/signup", signup)
+router.post("/signup",  signup)
 
-router.post("/login", login);
+router.post("/login",  login);
 
 router.post("/logout", logout)
 
